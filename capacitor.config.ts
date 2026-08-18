@@ -3,7 +3,7 @@ import { KeyboardResize, KeyboardStyle } from '@capacitor/keyboard';
 
 const config: CapacitorConfig = {
   appId: 'ai.jarvis.assistant',
-  appName: 'Jarvis',
+  appName: 'ARIA',
   webDir: 'dist',
 
   server: {
@@ -11,7 +11,7 @@ const config: CapacitorConfig = {
   },
 
   android: {
-    // Jarvis is dark-only; a light webview background flashes white on launch.
+    // ARIA is dark-only; a light webview background flashes white on launch.
     backgroundColor: '#05080d',
     allowMixedContent: false,
     captureInput: true,

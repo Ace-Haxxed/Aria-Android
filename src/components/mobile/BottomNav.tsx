@@ -1,14 +1,14 @@
 import { motion } from 'framer-motion';
-import { FolderOpen, MessageCircle, Settings, Sparkles } from 'lucide-react';
+import { AudioLines, FolderOpen, ListChecks, MessageCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-export type MobileTab = 'chat' | 'skills' | 'files' | 'settings';
+export type MobileTab = 'chat' | 'voice' | 'files' | 'actions';
 
 const TABS: Array<{ id: MobileTab; label: string; icon: typeof MessageCircle }> = [
   { id: 'chat', label: 'Chat', icon: MessageCircle },
-  { id: 'skills', label: 'Skills', icon: Sparkles },
+  { id: 'voice', label: 'Voice', icon: AudioLines },
   { id: 'files', label: 'Files', icon: FolderOpen },
-  { id: 'settings', label: 'Settings', icon: Settings },
+  { id: 'actions', label: 'Actions', icon: ListChecks },
 ];
 
 interface BottomNavProps {
@@ -19,9 +19,14 @@ interface BottomNavProps {
 export function BottomNav({ active, onChange }: BottomNavProps) {
   return (
     <nav
-      className="nova-panel flex shrink-0 items-stretch border-x-0 border-b-0"
-      // Keep the bar clear of the home indicator on gesture-navigation phones.
-      style={{ paddingBottom: 'var(--safe-bottom)' }}
+      className="flex shrink-0 items-stretch"
+      style={{
+        background: 'hsl(var(--background) / 0.95)',
+        backdropFilter: 'blur(20px)',
+        borderTop: '1px solid var(--border-subtle)',
+        // Keep the bar clear of the home indicator on gesture-navigation phones.
+        paddingBottom: 'var(--safe-bottom)',
+      }}
     >
       {TABS.map((tab) => {
         const selected = tab.id === active;
@@ -30,20 +35,25 @@ export function BottomNav({ active, onChange }: BottomNavProps) {
             key={tab.id}
             onClick={() => onChange(tab.id)}
             className={cn(
-              'relative flex flex-1 flex-col items-center gap-1 py-2.5 text-[10px] font-medium transition-colors',
-              selected ? 'text-primary' : 'text-muted-foreground',
+              'relative flex h-14 flex-1 flex-col items-center justify-center gap-1',
+              'text-[10px] font-medium transition-colors duration-150 active:scale-95',
             )}
-            nova-current={selected ? 'page' : undefined}
+            style={{ color: selected ? 'var(--nova-primary)' : 'var(--text-dim)' }}
+            aria-current={selected ? 'page' : undefined}
           >
             {selected && (
               <motion.span
                 layoutId="mobile-tab-indicator"
-                className="absolute inset-x-4 top-0 h-0.5 rounded-full bg-primary"
+                className="absolute inset-x-4 top-0 h-0.5 rounded-full"
+                style={{ background: 'var(--nova-primary)' }}
                 transition={{ type: 'spring', damping: 30, stiffness: 400 }}
               />
             )}
             <tab.icon className="h-5 w-5" />
-            {tab.label}
+            {/* Only the selected tab is labelled. Four labels at 10px on a
+                phone is a row of grey noise; the icons carry the meaning and
+                the active one names itself. */}
+            {selected && tab.label}
           </button>
         );
       })}

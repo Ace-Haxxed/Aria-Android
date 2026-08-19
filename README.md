@@ -18,7 +18,7 @@ repositories, each stripped to one target.
 
 **No computer needed.** On the phone:
 
-1. Open **[the Releases page](https://github.com/Ace-Haxxed/Aria-Android/releases/latest)**
+1. Open **[the Releases page](https://github.com/Ace-Haxxed/Nova-Android/releases/latest)**
    in your browser.
 2. Tap the `.apk` file to download it.
 3. Open the download. Android asks whether to allow installs from your browser —
@@ -31,7 +31,7 @@ installable without a Play Store account.
 Needs **Android 8.0** or newer.
 
 > If the Releases page is empty, no version has been tagged yet. Every push also
-> leaves an APK under the [Actions tab](https://github.com/Ace-Haxxed/Aria-Android/actions) —
+> leaves an APK under the [Actions tab](https://github.com/Ace-Haxxed/Nova-Android/actions) —
 > open the newest run and download the `nova-apk` artifact. That one needs a
 > desktop browser, because GitHub artifacts arrive as a zip.
 
@@ -139,9 +139,9 @@ NOVA can act on your behalf. Read what it is doing.
 
 | Platform | Repository | Install |
 |---|---|---|
-| **iOS** | [Nova-Ios](https://github.com/Ace-Haxxed/Aria-Ios) | Xcode with a free Apple ID (7-day cert) |
-| **Arch Linux** | [Nova](https://github.com/Ace-Haxxed/Aria) | `scripts/install-arch.sh`, then `scripts/install.sh` |
-| **Debian / Ubuntu** | [Nova-Debian](https://github.com/Ace-Haxxed/Aria-Debian) | `scripts/install-debian.sh`, then `scripts/install.sh` |
-| **Fedora** | [Nova-Fedora](https://github.com/Ace-Haxxed/Aria-Fedora) | `scripts/install-fedora.sh`, then `scripts/install.sh` |
-| **Windows** | [Nova-Windows](https://github.com/Ace-Haxxed/Aria-Windows) | `scripts\install-windows.ps1`, then build the `.msi` |
-| **macOS** | [Nova-Mac](https://github.com/Ace-Haxxed/Aria-Mac) | `scripts/install-mac.sh`, then build the `.dmg` |
+| **iOS** | [Nova-Ios](https://github.com/Ace-Haxxed/Nova-Ios) | Xcode with a free Apple ID (7-day cert) |
+| **Arch Linux** | [Nova](https://github.com/Ace-Haxxed/Nova) | `scripts/install-arch.sh`, then `scripts/install.sh` |
+| **Debian / Ubuntu** | [Nova-Debian](https://github.com/Ace-Haxxed/Nova-Debian) | `scripts/install-debian.sh`, then `scripts/install.sh` |
+| **Fedora** | [Nova-Fedora](https://github.com/Ace-Haxxed/Nova-Fedora) | `scripts/install-fedora.sh`, then `scripts/install.sh` |
+| **Windows** | [Nova-Windows](https://github.com/Ace-Haxxed/Nova-Windows) | `scripts\install-windows.ps1`, then build the `.msi` |
+| **macOS** | [Nova-Mac](https://github.com/Ace-Haxxed/Nova-Macos) | `scripts/install-mac.sh`, then build the `.dmg` |

@@ -5,10 +5,13 @@ import { Orb, STATE_LABEL } from '@/components/shared/Orb';
 import { Message } from '@/components/shared/Message';
 import { VoiceInput } from '@/components/shared/VoiceInput';
 import { BottomNav, type MobileTab } from './BottomNav';
+import { MobileTopBar } from './MobileTopBar';
+import { VoiceScreen } from './VoiceScreen';
 import { CameraView } from './CameraView';
 import { SwipeHistory } from './SwipeHistory';
 import { MobileFiles } from './MobileFiles';
 import { MobileSkills } from './MobileSkills';
+import { MobileActions } from './MobileActions';
 import { SettingsPanel } from '@/components/Settings/SettingsPanel';
 import { useAgent } from '@/hooks/useAgent';
 import { useVoice } from '@/hooks/useVoice';
@@ -17,6 +20,9 @@ import { useConversation } from '@/store/conversation';
 
 export function MobileLayout() {
   const [tab, setTab] = useState<MobileTab>('chat');
+  // Settings is no longer a tab — the four slots go to Chat, Voice, Files and
+  // Actions — so it opens as a sheet from the top bar instead.
+  const [settingsOpen, setSettingsOpen] = useState(false);
   const [historyOpen, setHistoryOpen] = useState(false);
   const [showTranscript, setShowTranscript] = useState(false);
 
@@ -94,6 +100,8 @@ export function MobileLayout() {
       className="flex h-full flex-col bg-background"
       style={{ paddingTop: 'var(--safe-top)' }}
     >
+      <MobileTopBar onOpenSettings={() => setSettingsOpen(true)} />
+
       <div className="relative min-h-0 flex-1">
         {tab === 'chat' && (
           <motion.div
@@ -196,8 +204,22 @@ export function MobileLayout() {
           </motion.div>
         )}
 
-        {tab === 'skills' && (
+        {tab === 'voice' && (
+          <VoiceScreen
+            state={agentState}
+            level={voice.level}
+            spectrum={voice.spectrum}
+            listening={voice.listening}
+            onToggle={() => voice.toggleListening()}
+            transcript={
+              [...conversation.messages].reverse().find((m) => m.role === 'user')?.content
+            }
+          />
+        )}
+
+        {tab === 'files' && (
           <div className="nova-scroll h-full overflow-y-auto">
+            <MobileFiles />
             <MobileSkills
               onRun={(prompt) => {
                 setTab('chat');
@@ -215,21 +237,40 @@ export function MobileLayout() {
           </div>
         )}
 
-        {tab === 'files' && (
+        {tab === 'actions' && (
           <div className="nova-scroll h-full overflow-y-auto">
-            <MobileFiles />
-          </div>
-        )}
-
-        {tab === 'settings' && (
-          <div className="nova-scroll h-full overflow-y-auto">
-            <SettingsPanel embedded />
+            <MobileActions />
           </div>
         )}
       </div>
 
       <BottomNav active={tab} onChange={setTab} />
       <SwipeHistory open={historyOpen} onClose={() => setHistoryOpen(false)} />
+
+      {settingsOpen && (
+        <div
+          className="fixed inset-0 z-50 flex flex-col"
+          style={{ background: 'var(--bg-void)', paddingTop: 'var(--safe-top)' }}
+        >
+          <div
+            className="flex h-[52px] shrink-0 items-center justify-between px-4"
+            style={{ borderBottom: '1px solid var(--border-subtle)' }}
+          >
+            <span className="text-[13px] uppercase tracking-[0.24em] text-primary">Settings</span>
+            <button
+              onClick={() => setSettingsOpen(false)}
+              aria-label="Close settings"
+              className="text-[13px] active:scale-95"
+              style={{ color: 'var(--text-secondary)' }}
+            >
+              Done
+            </button>
+          </div>
+          <div className="nova-scroll min-h-0 flex-1 overflow-y-auto">
+            <SettingsPanel embedded />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

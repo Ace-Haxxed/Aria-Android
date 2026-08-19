@@ -69,7 +69,7 @@
             </intent-filter>
         </receiver>
 
-        <!-- 1x1 home screen widget: a mic button that opens ARIA listening. -->
+        <!-- 1x1 home screen widget: a mic button that opens NOVA listening. -->
         <receiver
             android:name=".JarvisWidgetProvider"
             android:exported="true"
@@ -82,7 +82,7 @@
                 android:resource="@xml/jarvis_widget_info" />
         </receiver>
 
-        <!-- Quick settings tile: "Hey ARIA" from the notification shade. -->
+        <!-- Quick settings tile: "Hey NOVA" from the notification shade. -->
         <service
             android:name=".JarvisTileService"
             android:icon="@mipmap/ic_launcher"

@@ -13,7 +13,7 @@ interface Entry {
 }
 
 /**
- * Browser for ARIA's sandboxed storage. iOS and Android do not grant an app
+ * Browser for NOVA's sandboxed storage. iOS and Android do not grant an app
  * access to the whole filesystem, so this is scoped to the app's own directory
  * — the same place the file tools read and write.
  */
@@ -69,7 +69,7 @@ export function MobileFiles() {
           </Button>
         )}
         <h2 className="flex-1 truncate text-sm font-semibold">
-          {path || 'ARIA storage'}
+          {path || 'NOVA storage'}
         </h2>
         <Button size="icon-sm" variant="ghost" onClick={() => void load(path)} aria-label="Refresh">
           <RefreshCw className="h-3.5 w-3.5" />
@@ -81,7 +81,7 @@ export function MobileFiles() {
       {!loading && entries.length === 0 && (
         <Card className="p-6 text-center">
           <p className="text-sm text-muted-foreground">
-            Nothing here yet. Files ARIA creates will show up in this folder.
+            Nothing here yet. Files NOVA creates will show up in this folder.
           </p>
           {error && <p className="mt-2 text-[11px] text-muted-foreground/70">{error}</p>}
         </Card>

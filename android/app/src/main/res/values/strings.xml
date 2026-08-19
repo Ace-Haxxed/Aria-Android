@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">ARIA</string>
-    <string name="title_activity_main">ARIA</string>
+    <string name="app_name">NOVA</string>
+    <string name="title_activity_main">NOVA</string>
     <string name="package_name">ai.jarvis.assistant</string>
     <string name="custom_url_scheme">ai.jarvis.assistant</string>
 
-    <string name="widget_label">Ask ARIA</string>
-    <string name="widget_description">A one-tap microphone button that opens ARIA listening.</string>
-    <string name="tile_label">Hey ARIA</string>
+    <string name="widget_label">Ask NOVA</string>
+    <string name="widget_description">A one-tap microphone button that opens NOVA listening.</string>
+    <string name="tile_label">Hey NOVA</string>
 </resources>

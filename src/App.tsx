@@ -69,7 +69,7 @@ export default function App() {
     })();
   }, []);
 
-  // Handle `aria://chat?message=…` deep links and Android share intents.
+  // Handle `nova://chat?message=…` deep links and Android share intents.
   useEffect(() => {
     let remove: (() => void) | undefined;
     void (async () => {
@@ -81,7 +81,7 @@ export default function App() {
           if (message) {
             // Same event the native share/PROCESS_TEXT paths emit, so there is
             // one entry point for "text arrived from outside the app".
-            window.dispatchEvent(new CustomEvent('aria:shared-text', { detail: message }));
+            window.dispatchEvent(new CustomEvent('nova:shared-text', { detail: message }));
           }
         } catch {
           // A malformed deep link is not worth crashing over.

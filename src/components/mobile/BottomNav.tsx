@@ -19,7 +19,7 @@ interface BottomNavProps {
 export function BottomNav({ active, onChange }: BottomNavProps) {
   return (
     <nav
-      className="aria-panel flex shrink-0 items-stretch border-x-0 border-b-0"
+      className="nova-panel flex shrink-0 items-stretch border-x-0 border-b-0"
       // Keep the bar clear of the home indicator on gesture-navigation phones.
       style={{ paddingBottom: 'var(--safe-bottom)' }}
     >
@@ -33,7 +33,7 @@ export function BottomNav({ active, onChange }: BottomNavProps) {
               'relative flex flex-1 flex-col items-center gap-1 py-2.5 text-[10px] font-medium transition-colors',
               selected ? 'text-primary' : 'text-muted-foreground',
             )}
-            aria-current={selected ? 'page' : undefined}
+            nova-current={selected ? 'page' : undefined}
           >
             {selected && (
               <motion.span

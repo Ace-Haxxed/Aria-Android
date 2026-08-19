@@ -1,8 +1,8 @@
 <div align="center">
 
-# ARIA for Android
+# NOVA for Android
 
-**Adaptive Reasoning and Intelligence Assistant**
+**Neural Operative Virtual Assistant**
 
 A voice-driven AI assistant on your phone. Ask it things, point the camera at
 something, share text to it from any app.
@@ -32,14 +32,14 @@ Needs **Android 8.0** or newer.
 
 > If the Releases page is empty, no version has been tagged yet. Every push also
 > leaves an APK under the [Actions tab](https://github.com/Ace-Haxxed/Aria-Android/actions) —
-> open the newest run and download the `aria-apk` artifact. That one needs a
+> open the newest run and download the `nova-apk` artifact. That one needs a
 > desktop browser, because GitHub artifacts arrive as a zip.
 
 ---
 
 ## Give it a model
 
-ARIA needs a language model. On first launch it walks you through picking one;
+NOVA needs a language model. On first launch it walks you through picking one;
 you can change it later in **Settings → Keys**.
 
 | Backend | Key | Notes |
@@ -55,7 +55,7 @@ Get a key from `console.groq.com/keys`, `openrouter.ai/keys` or
 `build.nvidia.com`, then paste it in. Pasting validates it against the live API
 in the same gesture, so a green tick means the key really worked.
 
-**OpenRouter models are read live.** ARIA fetches the catalogue, keeps the free
+**OpenRouter models are read live.** NOVA fetches the catalogue, keeps the free
 models that support tool calling, and picks the largest context window. No model
 id is hardcoded, because every id that ever was hardcoded got withdrawn.
 
@@ -69,17 +69,17 @@ notifications · clipboard · long-term memory of your preferences
 
 **Ways in from the rest of the phone**
 
-- **Share to ARIA** from any app
-- **Select text → ARIA** in the text selection menu
+- **Share to NOVA** from any app
+- **Select text → NOVA** in the text selection menu
 - **Home screen widget** — a one-tap mic button
-- **Quick settings tile** — "Hey ARIA" from the notification shade
-- **Deep links** — `aria://chat?message=…`
+- **Quick settings tile** — "Hey NOVA" from the notification shade
+- **Deep links** — `nova://chat?message=…`
 
 ---
 
 ## Privacy
 
-No analytics, no telemetry, no crash reporting. The only traffic ARIA makes is
+No analytics, no telemetry, no crash reporting. The only traffic NOVA makes is
 to the model backend you chose and to pages you ask it to read.
 
 Permissions are requested when first needed, each with a plain explanation.
@@ -131,7 +131,7 @@ it answers without calling a tool. Every call is recorded in the action log.
 
 ---
 
-ARIA can act on your behalf. Read what it is doing.
+NOVA can act on your behalf. Read what it is doing.
 
 ---
 
@@ -139,9 +139,9 @@ ARIA can act on your behalf. Read what it is doing.
 
 | Platform | Repository | Install |
 |---|---|---|
-| **iOS** | [Aria-Ios](https://github.com/Ace-Haxxed/Aria-Ios) | Xcode with a free Apple ID (7-day cert) |
-| **Arch Linux** | [Aria](https://github.com/Ace-Haxxed/Aria) | `scripts/install-arch.sh`, then `scripts/install.sh` |
-| **Debian / Ubuntu** | [Aria-Debian](https://github.com/Ace-Haxxed/Aria-Debian) | `scripts/install-debian.sh`, then `scripts/install.sh` |
-| **Fedora** | [Aria-Fedora](https://github.com/Ace-Haxxed/Aria-Fedora) | `scripts/install-fedora.sh`, then `scripts/install.sh` |
-| **Windows** | [Aria-Windows](https://github.com/Ace-Haxxed/Aria-Windows) | `scripts\install-windows.ps1`, then build the `.msi` |
-| **macOS** | [Aria-Mac](https://github.com/Ace-Haxxed/Aria-Mac) | `scripts/install-mac.sh`, then build the `.dmg` |
+| **iOS** | [Nova-Ios](https://github.com/Ace-Haxxed/Aria-Ios) | Xcode with a free Apple ID (7-day cert) |
+| **Arch Linux** | [Nova](https://github.com/Ace-Haxxed/Aria) | `scripts/install-arch.sh`, then `scripts/install.sh` |
+| **Debian / Ubuntu** | [Nova-Debian](https://github.com/Ace-Haxxed/Aria-Debian) | `scripts/install-debian.sh`, then `scripts/install.sh` |
+| **Fedora** | [Nova-Fedora](https://github.com/Ace-Haxxed/Aria-Fedora) | `scripts/install-fedora.sh`, then `scripts/install.sh` |
+| **Windows** | [Nova-Windows](https://github.com/Ace-Haxxed/Aria-Windows) | `scripts\install-windows.ps1`, then build the `.msi` |
+| **macOS** | [Nova-Mac](https://github.com/Ace-Haxxed/Aria-Mac) | `scripts/install-mac.sh`, then build the `.dmg` |

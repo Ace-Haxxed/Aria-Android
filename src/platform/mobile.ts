@@ -24,7 +24,7 @@ import { formatBytes, uid } from '@/lib/utils';
 
 const MOBILE: Array<'mobile'> = ['mobile'];
 
-/** Sandboxed root for everything ARIA reads or writes on a phone. */
+/** Sandboxed root for everything NOVA reads or writes on a phone. */
 const ROOT = Directory.Data;
 
 export async function mobilePlatformInfo(): Promise<PlatformInfo> {
@@ -155,12 +155,12 @@ export async function mobileTools(): Promise<ToolDefinition[]> {
     defineTool({
       name: 'read_file',
       description:
-        "Read a text file from ARIA's storage. Only files ARIA itself created are " +
+        "Read a text file from NOVA's storage. Only files NOVA itself created are " +
         'accessible — the OS sandboxes everything else.',
       capability: 'files',
       risk: 'low',
       platforms: MOBILE,
-      parameters: { path: p.string('File path, relative to ARIA storage.') },
+      parameters: { path: p.string('File path, relative to NOVA storage.') },
       required: ['path'],
       async run(args) {
         const path = argString(args, 'path');
@@ -175,13 +175,13 @@ export async function mobileTools(): Promise<ToolDefinition[]> {
 
     defineTool({
       name: 'write_file',
-      description: "Write a text file into ARIA's storage.",
+      description: "Write a text file into NOVA's storage.",
       capability: 'files',
       risk: 'medium',
       destructive: true,
       platforms: MOBILE,
       parameters: {
-        path: p.string('File path, relative to ARIA storage.'),
+        path: p.string('File path, relative to NOVA storage.'),
         content: p.string('The file contents.'),
       },
       required: ['path', 'content'],
@@ -200,7 +200,7 @@ export async function mobileTools(): Promise<ToolDefinition[]> {
 
     defineTool({
       name: 'list_files',
-      description: "List the files in ARIA's storage.",
+      description: "List the files in NOVA's storage.",
       capability: 'files',
       risk: 'low',
       platforms: MOBILE,
@@ -219,7 +219,7 @@ export async function mobileTools(): Promise<ToolDefinition[]> {
 
     defineTool({
       name: 'delete_file',
-      description: "Delete a file from ARIA's storage. This is immediate and cannot be undone.",
+      description: "Delete a file from NOVA's storage. This is immediate and cannot be undone.",
       capability: 'files',
       risk: 'high',
       destructive: true,
@@ -247,7 +247,7 @@ export async function mobileTools(): Promise<ToolDefinition[]> {
       async run(args) {
         await Share.share({
           text: argString(args, 'text'),
-          title: args.title != null ? argString(args, 'title') : 'Shared from ARIA',
+          title: args.title != null ? argString(args, 'title') : 'Shared from NOVA',
           dialogTitle: 'Share',
         });
         return 'Opened the share sheet.';
@@ -256,7 +256,7 @@ export async function mobileTools(): Promise<ToolDefinition[]> {
 
     defineTool({
       name: 'share_file',
-      description: "Share a file from ARIA's storage through the native share sheet.",
+      description: "Share a file from NOVA's storage through the native share sheet.",
       capability: 'files',
       risk: 'low',
       platforms: MOBILE,
@@ -325,7 +325,7 @@ export async function mobileTools(): Promise<ToolDefinition[]> {
           notifications: [
             {
               id: Date.now() % 2_147_483_647,
-              title: 'ARIA reminder',
+              title: 'NOVA reminder',
               body: argString(args, 'text'),
               schedule: { at: when },
             },

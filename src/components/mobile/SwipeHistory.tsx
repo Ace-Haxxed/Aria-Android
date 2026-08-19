@@ -44,7 +44,7 @@ export function SwipeHistory({ open, onClose }: SwipeHistoryProps) {
             onDragEnd={(_, info) => {
               if (info.offset.y > 120 || info.velocity.y > 500) onClose();
             }}
-            className="aria-panel fixed inset-x-0 bottom-0 z-50 max-h-[75vh] rounded-t-2xl border-b-0"
+            className="nova-panel fixed inset-x-0 bottom-0 z-50 max-h-[75vh] rounded-t-2xl border-b-0"
             style={{ paddingBottom: 'var(--safe-bottom)' }}
           >
             <div className="flex justify-center pt-2">
@@ -67,7 +67,7 @@ export function SwipeHistory({ open, onClose }: SwipeHistoryProps) {
               </Button>
             </div>
 
-            <div className="aria-scroll max-h-[55vh] overflow-y-auto px-3 pb-4">
+            <div className="nova-scroll max-h-[55vh] overflow-y-auto px-3 pb-4">
               {list.length === 0 && (
                 <p className="px-2 py-6 text-center text-sm text-muted-foreground">
                   No conversations yet.

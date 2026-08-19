@@ -72,11 +72,11 @@ export function MobileLayout() {
       void voice.startListening();
     };
 
-    window.addEventListener('aria:shared-text', onSharedText);
-    window.addEventListener('aria:start-listening', onStartListening);
+    window.addEventListener('nova:shared-text', onSharedText);
+    window.addEventListener('nova:start-listening', onStartListening);
     return () => {
-      window.removeEventListener('aria:shared-text', onSharedText);
-      window.removeEventListener('aria:start-listening', onStartListening);
+      window.removeEventListener('nova:shared-text', onSharedText);
+      window.removeEventListener('nova:start-listening', onStartListening);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -121,7 +121,7 @@ export function MobileLayout() {
                   </div>
                 </div>
 
-                <div ref={scrollRef} className="aria-scroll min-h-0 flex-1 overflow-y-auto">
+                <div ref={scrollRef} className="nova-scroll min-h-0 flex-1 overflow-y-auto">
                   <div className="space-y-4 px-4 py-4">
                     {conversation.messages.map((message) => (
                       <Message
@@ -197,7 +197,7 @@ export function MobileLayout() {
         )}
 
         {tab === 'skills' && (
-          <div className="aria-scroll h-full overflow-y-auto">
+          <div className="nova-scroll h-full overflow-y-auto">
             <MobileSkills
               onRun={(prompt) => {
                 setTab('chat');
@@ -216,13 +216,13 @@ export function MobileLayout() {
         )}
 
         {tab === 'files' && (
-          <div className="aria-scroll h-full overflow-y-auto">
+          <div className="nova-scroll h-full overflow-y-auto">
             <MobileFiles />
           </div>
         )}
 
         {tab === 'settings' && (
-          <div className="aria-scroll h-full overflow-y-auto">
+          <div className="nova-scroll h-full overflow-y-auto">
             <SettingsPanel embedded />
           </div>
         )}

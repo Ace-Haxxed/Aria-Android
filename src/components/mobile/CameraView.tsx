@@ -91,7 +91,7 @@ export function CameraView({ onAnalyse }: CameraViewProps) {
               setPreview(null);
             }}
           >
-            Ask ARIA
+            Ask NOVA
           </Button>
         </div>
       )}
